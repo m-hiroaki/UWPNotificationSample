@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package 
+    xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap4="http://schemas.microsoft.com/appx/manifest/uap/windows10/4"
+  IgnorableNamespaces="uap mp uap4">
+  <Identity Name="Microsoft.SDKSamples.RawNotifications.CS" Version="1.0.0.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
+  <mp:PhoneIdentity PhoneProductId="a3fcb906-538f-40e2-82b0-64583d845223" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>RawNotifications CS</DisplayName>
+    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <Logo>Images\storeLogo-sdk.png</Logo>
+    <Description>Raw Notifications Sample CS</Description>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Applications>
+    <Application Id="RawNotificationsSampleCS.App" Executable="$targetnametoken$.exe" EntryPoint="RawNotificationsSampleCS.App">
+      <uap:VisualElements DisplayName="RawNotifications CS"
+                          Square44x44Logo="Images\squareTile-sdk.png"
+                          Square150x150Logo="Images\squareTile-sdk.png" 
+                          Description="RawNotifications CS"
+                          BackgroundColor="#00b2f0">
+        <uap:DefaultTile/>
+      </uap:VisualElements>
+      <Extensions>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.SampleBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent"/>
+            <Task Type="timer"/>
+          </BackgroundTasks>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="BackgroundTasks.NotificationActionBackgroundTask">
+          <BackgroundTasks>
+            <Task Type="systemEvent"/>
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
